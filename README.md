@@ -7,7 +7,7 @@
   Nesse projeto tem os arquivos do docker e do docker-compose totalmente documentados para facilitar o seu estudo com esplicações dos comandos.
 </p>
 
-# Como usar ?
+## Como usar ?
 
 - Buildar os containers
 ```
