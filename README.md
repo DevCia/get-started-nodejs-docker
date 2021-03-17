@@ -1,6 +1,6 @@
 
 <h3 align="center">
-  :whale2: projeto para estudo do docker com o nodeJs
+  :whale2: Projeto para estudo do docker com o nodeJs
 </h3>
 
 <p align="center">
