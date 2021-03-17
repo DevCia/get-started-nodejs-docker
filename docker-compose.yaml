@@ -1,0 +1,58 @@
+# versão de compatibilidade dos comandos aqui do arquivo
+# com a versão do docker e do docker-compose
+version: '3'
+
+services:
+  
+  # aqui nos definimos servidor do node
+  node-server:
+    
+    # o build diz onde o arquivo Dockerfile se encontra para ele
+    # ser execultado pelo docker-compose
+    build: .
+    
+    # aqui diz qual o nome do container 
+    container_name: node-server
+  
+    # aqui diz para depois que for copiado os arquivos do projeto no container 
+    # ele execultar os comandos desse arquivo no shell do container
+    entrypoint: ./.docker/entrypoint.sh
+    
+    # copia os arquivos do projeto para o container
+    # os comandos antes do sinal de dois pontos : 
+    # é o endereço dos arquivos na sua maquina
+    # e apos os dois pontos é o caminho para onde
+    # os arquivos serão copiados no container
+    volumes:
+      - .:/home/node/api
+      - /home/node/api/node_modules
+    
+    # aqui seta as portas que serão usadas pela aplicação
+    # antes dos dois pontos é a porta que sera usada na sua maquina 
+    # para ter acesso a essa api
+    # depois dos dois pontos fica a porta que sera usada pela aplicação dentro do container
+    ports:
+      - '3333:3333'
+    
+    # esse parametro diz para o docker poder subir o nosso servidor ele precisa
+    # subir o nosso banco de dados
+    depends_on: 
+      - database
+
+  # a partir desse ponto ficara os parametros do nosso banco de dados
+  database:
+    container_name: database
+    build: ./.docker/mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./.docker/dbdata:/var/lib/mysql
+      # essa parte diz para o mysql que quando ele criar o banco ele deve execultar o nosso arquivo initdb.sql
+      - ./.docker/mysql:/docker-entrypoint-initdb.d
+    
+    # aqui nos podemos setar parametros que nos queremos que o container tenha acesso
+    # por exemplo aqui nos setamos o nome da nossa base 
+    # password do root no nosso banco
+    environment:
+      - MYSQL_DATABASE=kamerra
+      - MYSQL_ROOT_PASSWORD=root
