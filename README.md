@@ -24,4 +24,4 @@
  docker-compose down
 ```
 
-- Após iniciar os containers basta acessar o endpoint http://localhost:3333/ para receber o seu kamerra :smile:.
+- Após iniciar os containers basta acessar o endpoint http://localhost:3333/ para receber o seu oi do Goku :smile:.
