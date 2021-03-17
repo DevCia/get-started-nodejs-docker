@@ -1,5 +1,5 @@
 # versão de compatibilidade dos comandos aqui do arquivo
-# com a versão do docker e do docker-compose
+# com a versão do docker-compose
 version: '3'
 
 services:
