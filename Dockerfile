@@ -3,9 +3,9 @@
 FROM node:lts-alpine
 
 # o comando run roda um comando na hora da criação do container
-# nesse casso é criada a pasta de dependencias para dentro do doctainer
-# e depois é adicionada a permisão de escrita e criacção para a pasta do projeto no container
-# node no casso é tambem o nome padrão do usuario que rodara os comandos dentro do container
+# nesse caso é criada a pasta de dependencias para dentro do doctainer
+# e depois é adicionada a permisão de escrita e criação para a pasta do projeto no container
+# node no caso é tambem o nome padrão do usuario que rodara os comandos dentro do container
 RUN mkdir -p /home/node/api/node_modules && chown -R node:node /home/node/api
 
 # aqui seta em que pasta nois vamos trabalhar
