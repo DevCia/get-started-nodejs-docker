@@ -14,7 +14,7 @@ WORKDIR /home/node/api
 # aqui nos vamos copiar os arquivos do gerenciador de pacotes para a pasta do projeto
 COPY package.json yarn.* ./
 
-# aqui nos forcamos o usuario padrão para previnir erros
+# aqui nos forcamos o usuário padrão para prevenir erros que poderiam acontecer.
 USER node
 
 # e aqui nos damos permição total para os arquivos dentro da pasta do nosso projeto
